@@ -1,14 +1,20 @@
 import type {InferGetStaticPropsType} from "next";
+import {Fragment} from "react";
 import getAllProducts from "@framework/product/get-all-products";
 import {getConfig} from "@framework/api/config";
 import {Layout} from "@components/common";
+import {ProductCard} from "@components/product";
+import {Grid} from "@components/ui";
+
 
 export default function Home({products}: InferGetStaticPropsType<typeof getStaticProps>) {
 
   return (
-    <div>
-      {JSON.stringify(products)}
-    </div>
+    <Grid>
+      <Fragment>
+        {products.slice(0,3).map(product => <ProductCard key={product.id} product={product}/>)}
+      </Fragment>
+    </Grid>
   )
 }
 

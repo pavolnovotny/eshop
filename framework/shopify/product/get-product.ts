@@ -19,7 +19,7 @@ const getProduct = async (options: {config: ApiConfig, variables: Variables}): P
     variables})
 
   const {productByHandle} = data
-  console.log(JSON.stringify(data, null,2), 'testing')
+
   return {
     product: productByHandle ? normalizeProduct(productByHandle) : null
   }
